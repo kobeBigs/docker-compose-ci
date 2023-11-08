@@ -4,6 +4,8 @@ Inspired by [karser/docker-compose-ci](https://hub.docker.com/r/karser/docker-co
 
 ## Docker pull command
 
+This image can be found on docker hub as [kobebigs/docker-compose-ci](https://hub.docker.com/r/kobebigs/docker-compose-ci)
+
 ```
 docker pull kobebigs/docker-compose-ci
 ```
