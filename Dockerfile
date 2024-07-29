@@ -14,14 +14,14 @@ RUN apk add --no-cache \
         libffi-dev \
         openssl-dev \
         openssh-client \
-    \
-    && pip3 install --upgrade pip \
-    \
-    && pip3 install --quiet \
+    && python3 -m venv /opt/venv \
+    && /opt/venv/bin/pip install --upgrade pip \
+    && /opt/venv/bin/pip install --quiet \
         boto3 \
         awscli \
-    \
     && adduser -D -u ${PUID} -G ping -h /home/nonroot nonroot 
+
+ENV PATH="/opt/venv/bin:$PATH"
 
 CMD [ "dockerd" ]
 RUN docker --version \
@@ -31,4 +31,3 @@ RUN docker --version \
     && aws --version 
 
 USER nonroot
-#CMD ["dockerd"]
